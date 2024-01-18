@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  </head>
-  <body>
 
-  <form action="/add_author" method="POST">
-  <!-- Add the form here -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+
+  <!-- Add dropdown menu for authors -->
+  <form action="/add_book" method="POST">
+    <label for="title">Book Title:</label>
+    <input type="text" id="title" title="title" required><br><br>
+
+    <label for="isbn">ISBN:</label>
+    <input type="text" id="isbn" title="isbn" required><br><br>
+
+    <label for="publication_year">Publication Year:</label>
+    <input type="date" id="date_of_death" title="date_of_death"><br><br>
+
+    <label for="authors">Select an author:</label>
+    <select id="authors" name="authors">
+      {% for author in authors %}
+      <option value="{{ author }}">{{ author }}</option>
+      {% endfor %}
+    </select>
+
+    <input type="submit" value="Add book">
   </form>
 
-  </body>
+</body>
+
 </html>
