@@ -6,7 +6,7 @@ db = SQLAlchemy()
 class Author(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String)
-    birth_date = db.Column(db.Date)
+    birthdate = db.Column(db.Date)
     date_of_death = db.Column(db.Date)
 
     def __str__(self):
@@ -14,7 +14,7 @@ class Author(db.Model):
 
     def __repr__(self):
         return (f"<Author(id={self.id}, name={self.name}, "
-                f"birth_date={self.birth_date}, "
+                f"birthdate={self.birthdate}, "
                 f"date_of_death={self.date_of_death})>")
 
 
