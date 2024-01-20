@@ -10,11 +10,25 @@
 <body>
   <h1>Welcome</h1>
   <a href="{{ url_for('add_author') }}">Add Author</a>
-  <a href="{{ url_for('add_book') }}">Add Book</a>
-  {% for book in books %}
+  <a href="{{ url_for('add_book') }}">Add Book</a><br><br>
+
+  <a href="{{ url_for('home', sort_by='title') }}">Sort by Title</a>
+  <a href="{{ url_for('home', sort_by='author') }}">Sort by Author</a><br><br>
+
+  <form method="post" action="{{ url_for('home') }}">
+    <label for="search_query">Search:</label>
+    <input type="text" name="search_query" id="search_query">
+    <input type="submit" value="Search">
+  </form>
+
+  {% for book, author in books %}
   <div>
     <h3>{{ book.title }}</h3>
+    <p>Author: {{ author.name }} </p>
   </div>
+  <form method="post" action="{{ url_for('delete_book', book_id=book.id) }}">
+    <button type="submit">Delete Book</button>
+  </form>
   {% endfor %}
 
 </body>

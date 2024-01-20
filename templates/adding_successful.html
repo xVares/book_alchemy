@@ -11,9 +11,13 @@
     <a href="{{ url_for('home') }}">Home</a>
     {% if author_added %}
     <h1>You have successfully added a new author!</h1>
+    <a href="{{ url_for('add_author') }}">Add another Author</a>
+    <a href="{{ url_for('add_book') }}">Add a Book</a>
 
     {% elif book_added %}
     <h1>You have successfully added a new book!</h1>
+    <a href="{{ url_for('add_author') }}">Add an Author</a>
+    <a href="{{ url_for('add_book') }}">Add another Book</a>
 
     {% else %}
     <h1>Something went wrong</h1>
